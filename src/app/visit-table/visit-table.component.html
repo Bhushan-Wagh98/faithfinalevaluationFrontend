@@ -1,0 +1,52 @@
+<input
+  type="text"
+  placeholder="Search text here..."
+  [(ngModel)]="filterString"
+/>
+<button routerLink="../createvisit">Add new Visit</button>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Visit ID</th>
+      <th>Customer</th>
+      <th>Contact Person</th>
+      <th>Contact Number</th>
+      <th>Interest Product</th>
+      <th>Visit Subject</th>
+      <th>Description</th>
+      <th>Visit Date</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr
+      *ngFor="
+        let visit of loginService.visitTableList
+          | filter : filterString
+          | paginate : { itemsPerPage: 5, currentPage: page }
+      "
+    >
+      <td>{{ visit.visit_id }}</td>
+      <td>{{ visit.cust_name }}</td>
+      <td>{{ visit.contact_person }}</td>
+      <td>{{ visit.contact_no }}</td>
+      <td>{{ visit.interest_product }}</td>
+      <td>{{ visit.visit_subject }}</td>
+      <td>{{ visit.description }}</td>
+      <td>{{ visit.visit_datetime }}</td>
+      <td>
+        <button (click)="updateVisit(visit)" class="green">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+      </td>
+      <td>
+        <button (click)="deleteVisit(visit.visit_id)" class="red">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<pagination-controls (pageChange)="page = $event"></pagination-controls>

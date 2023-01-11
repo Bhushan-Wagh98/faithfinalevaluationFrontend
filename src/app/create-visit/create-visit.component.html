@@ -1,0 +1,278 @@
+<button routerLink="../visittable">See all Visits</button>
+<div class="createVisitDiv">
+  <!-- Template Driven form -->
+  <form
+    name="createVisitForm"
+    #form="ngForm"
+    autocomplete="off"
+    (ngSubmit)="onSubmit(form.value)"
+  >
+    <!-- purchase order ID -->
+    <div class="form-group">
+      <label for="visit_id">Visit ID *:</label>
+      <input
+        type="text"
+        readonly
+        name="visit_id"
+        class="form-control"
+        [(ngModel)]="loginService.forVisitTableComponent.visit_id"
+      />
+    </div>
+
+    <!-- Purchase Order Number -->
+    <div class="form-group">
+      <label for="cust_name">Customer Name*:</label>
+      <input
+        type="text"
+        name="cust_name"
+        #cust_name="ngModel"
+        [(ngModel)]="loginService.forVisitTableComponent.cust_name"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': cust_name.touched && cust_name.invalid
+        }"
+      />
+      <div
+        class="validation-error"
+        *ngIf="cust_name.touched && cust_name.invalid"
+      >
+        <div *ngIf="cust_name.errors.required">Employee Name is Required!</div>
+      </div>
+    </div>
+
+    <!-- contact_person -->
+    <div class="form-group">
+      <label for="contact_person">Contact Person *:</label>
+
+      <input
+        type="text"
+        name="contact_person"
+        #contact_person="ngModel"
+        [(ngModel)]="loginService.forVisitTableComponent.contact_person"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': contact_person.touched && contact_person.invalid
+        }"
+      />
+      <div
+        class="validation-error"
+        *ngIf="contact_person.touched && contact_person.invalid"
+      >
+        <div *ngIf="contact_person.errors.required">
+          Asset Definition is Required!
+        </div>
+      </div>
+    </div>
+
+    <!-- contact_no -->
+    <div class="form-group">
+      <label for="contact_no">Contact Number *:</label>
+      <input
+        type="number"
+        name="contact_no"
+        #contact_no="ngModel"
+        [(ngModel)]="loginService.forVisitTableComponent.contact_no"
+        class="form-control"
+        required
+        [ngClass]="{
+          'is-invalid': contact_no.touched && contact_no.invalid
+        }"
+        placeholder="9876543210"
+      />
+
+      <div
+        class="validation-error"
+        *ngIf="contact_no.touched && contact_no.invalid"
+      >
+        <div *ngIf="contact_no.errors.required">contact_no is Required!</div>
+      </div>
+    </div>
+
+    <!-- Asset Type -->
+    <div class="form-group">
+      <label for="interest_product">Interested Product *:</label>
+      <input
+        type="text"
+        name="interest_product"
+        #interest_product="ngModel"
+        [(ngModel)]="loginService.forVisitTableComponent.interest_product"
+        class="form-control"
+        required
+        [ngClass]="{
+          'is-invalid': interest_product.touched && interest_product.invalid
+        }"
+        placeholder="mobile phone, tv, etc"
+      />
+
+      <div
+        class="validation-error"
+        *ngIf="interest_product.touched && interest_product.invalid"
+      >
+        <div *ngIf="interest_product.errors.required">
+          Asset Type is Required!
+        </div>
+      </div>
+    </div>
+
+    <!-- Vendor Id -->
+    <div class="form-group">
+      <label for="visit_subject">Visit Subject *:</label>
+      <input
+        type="text"
+        name="visit_subject"
+        #visit_subject="ngModel"
+        [(ngModel)]="loginService.forVisitTableComponent.visit_subject"
+        class="form-control"
+        required
+        [ngClass]="{
+          'is-invalid': visit_subject.touched && visit_subject.invalid
+        }"
+        placeholder="mobile phone, tv, etc"
+      />
+
+      <div
+        class="validation-error"
+        *ngIf="visit_subject.touched && visit_subject.invalid"
+      >
+        <div *ngIf="visit_subject.errors.required">Vendor is Required!</div>
+      </div>
+    </div>
+
+    <!-- Order date -->
+    <div class="form-group">
+      <label for="description">Description *:</label>
+      <input
+        type="text"
+        name="description"
+        #description="ngModel"
+        [(ngModel)]="loginService.forVisitTableComponent.description"
+        class="form-control"
+        required
+        [ngClass]="{
+          'is-invalid': description.touched && description.invalid
+        }"
+        placeholder="Details about visit"
+      />
+
+      <div
+        class="validation-error"
+        *ngIf="description.touched && description.invalid"
+      >
+        <div *ngIf="description.errors.required">Order Date is Required!</div>
+      </div>
+    </div>
+
+    <!-- Delivery date -->
+    <div class="form-group">
+      <label for="visit_datetime">Visit Date *:</label>
+      <input
+        type="date"
+        name="visit_datetime"
+        #visit_datetime="ngModel"
+        [(ngModel)]="loginService.forVisitTableComponent.visit_datetime"
+        class="form-control"
+        required
+        [ngClass]="{
+          'is-invalid': visit_datetime.touched && visit_datetime.invalid
+        }"
+      />
+
+      <div
+        class="validation-error"
+        *ngIf="visit_datetime.touched && visit_datetime.invalid"
+      >
+        <div *ngIf="visit_datetime.errors.required">
+          Delivery Date is Required!
+        </div>
+      </div>
+    </div>
+
+    <!-- is_disabled -->
+    <div class="form-group">
+      <label for="is_disabled">is_disabled *:</label>
+      <input
+        type="checkbox"
+        name="is_disabled"
+        #is_disabled="ngModel"
+        [(ngModel)]="loginService.forVisitTableComponent.is_disabled"
+        class="form-check"
+        [ngClass]="{
+          'is-invalid': is_disabled.touched && is_disabled.invalid
+        }"
+        placeholder="is_disabled of Order"
+      />
+
+      <div
+        class="validation-error"
+        *ngIf="is_disabled.touched && is_disabled.invalid"
+      >
+        <div *ngIf="is_disabled.errors.required">is_disabled is Required!</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="is_deleted">is_deleted *:</label>
+      <input
+        type="checkbox"
+        name="is_deleted"
+        #is_deleted="ngModel"
+        [(ngModel)]="loginService.forVisitTableComponent.is_deleted"
+        class="form-check"
+        [ngClass]="{
+          'is-invalid': is_deleted.touched && is_deleted.invalid
+        }"
+        placeholder="is_deleted of Order"
+      />
+
+      <div
+        class="validation-error"
+        *ngIf="is_deleted.touched && is_deleted.invalid"
+      >
+        <div *ngIf="is_deleted.errors.required">is_deleted is Required!</div>
+      </div>
+    </div>
+
+    <!-- assetDefinitionId -->
+    <div class="form-group">
+      <label for="assetDefinitionId">Employee*:</label>
+      <select
+        class="form-control"
+        name="assetDefinitionId"
+        id="assetDefinitionId"
+        required
+        [ngClass]="{
+          'is-invalid': assetDefinitionId.touched && assetDefinitionId.invalid
+        }"
+        #assetDefinitionId="ngModel"
+        [(ngModel)]="loginService.forVisitTableComponent.emp_id"
+      >
+        <option value="0" selected disabled>Select the Employee</option>
+        <option
+          *ngFor="let user of loginService.userList"
+          value="{{ user.emp_id }}"
+        >
+          {{ user.firstName }}
+        </option>
+      </select>
+
+      <div
+        class="validation-error"
+        *ngIf="assetDefinitionId.touched && assetDefinitionId.invalid"
+      >
+        <div *ngIf="assetDefinitionId.errors.required">
+          Asset Definition is Required!
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button
+        type="submit"
+        class="btn btn-lg btn-primary form-control"
+        [disabled]="!(form.valid && form.dirty)"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

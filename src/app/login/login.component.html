@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <img class="img-fluid" src="assets/images/login.jpg" alt="SantOsama" />
+    </div>
+
+    <div class="form-group col-md-6">
+      <!-- Reactive Form -->
+      <form [formGroup]="loginForm" (ngSubmit)="loginCredential()">
+        <!-- Email -->
+        <div>
+          <input
+            type="email"
+            placeholder="Enter Email ID"
+            formControlName="username"
+            autocomplete="off"
+            required
+            class="form-control"
+          />
+          <div *ngIf="isSubmitted && formControl.username.errors">
+            <div
+              class="inputError"
+              *ngIf="formControl.username.errors.required"
+            >
+              Email ID is Required!
+            </div>
+          </div>
+        </div>
+        <br />
+
+        <!-- password -->
+        <div>
+          <input
+            type="text"
+            placeholder="Enter Password"
+            formControlName="password"
+            autocomplete="off"
+            required
+            class="form-control"
+          />
+          <div *ngIf="isSubmitted && formControl.password.errors">
+            <div
+              class="inputError"
+              *ngIf="formControl.password.errors.required"
+            >
+              Password is Required!
+            </div>
+          </div>
+        </div>
+        <br />
+
+        <!-- submit -->
+        <div>
+          <button type="submit" class="btn btn-md btn-outline-primary">
+            <i class="fa fa-sign-in"></i> Login
+          </button>
+        </div>
+
+        <!-- error msg -->
+        <div *ngIf="error" class="inputError">{{ error }}</div>
+      </form>
+    </div>
+  </div>
+</div>
