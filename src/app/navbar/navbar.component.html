@@ -1,0 +1,42 @@
+<nav class="navbar header_area navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <div class="navbar-brand d-flex brand">
+      <a class="navbar-brand"
+        ><img src="../../assets/images/logo.jpg" class="logoImg" />
+      </a>
+      <a class="navbar-brand logoClick">
+        <h2 class="logoText">VisitTable</h2>
+      </a>
+    </div>
+    <button
+      class="navbar-toggler class myButtonNav"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page">
+            <i class="fa-solid fa-house-chimney link"></i>Home</a
+          >
+        </li>
+        <li routerLink="login" class="nav-item" *ngIf="!isloggedIn">
+          <a class="nav-link" aria-current="page">
+            <i class="fa-solid fa-right-to-bracket link"></i> Login</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="isloggedIn" (click)="logoutFn()">
+          <a class="nav-link" aria-current="page">
+            <i class="fa-solid fa-power-off"></i> Logout</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,700;1,900&family=Pacifico&display=swap");
+
+body,
+button,
+textarea,
+select,
+option,
+input {
+  font-family: "Montserrat", sans-serif !important;
+  // font-family: 'Pacifico', cursive;
+}
+.santLogo {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.homeImg {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 12px;
+}
+
+.logoMainDiv {
+  text-align: center;
+  width: 70%;
+  margin: auto;
+}
+
+.logoMainDiv > p {
+  font-weight: bolder;
+  margin: 50px;
+}
+
+.inputError {
+  color: red;
+  text-align: left;
+}
+.img-fluid {
+  border-radius: 12px;
+  //   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}

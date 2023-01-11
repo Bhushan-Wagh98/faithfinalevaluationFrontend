@@ -1,0 +1,24 @@
+<input
+  type="text"
+  placeholder="Search text here..."
+  [(ngModel)]="filterString"
+/>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Visit ID</th>
+      <th>Customer</th>
+      <th>Contact Person</th>
+      <th>Contact Number</th>
+      <th>Interest Product</th>
+      <th>Visit Subject</th>
+      <th>Description</th>
+      <th>Visit Date</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+  <tbody></tbody>
+</table>
+<pagination-controls (pageChange)="page = $event"></pagination-controls>
